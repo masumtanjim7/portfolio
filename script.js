@@ -164,3 +164,32 @@ contactButtons.forEach(btn => {
         btn.style.transform = "translate(0,0)";
     });
 });
+
+
+/* Copy email with success feedback */
+document.querySelectorAll(".copy-icon").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const email = btn.dataset.email;
+        const parentBtn = btn.closest(".contact-btn");
+        const img = btn.querySelector("img");
+        const originalSrc = img.src;
+
+        navigator.clipboard.writeText(email).then(() => {
+
+            // Tooltip success
+            parentBtn.classList.add("copied");
+
+            // Tick animation
+            btn.classList.add("success");
+
+            setTimeout(() => {
+                parentBtn.classList.remove("copied");
+                btn.classList.remove("success");
+                img.src = originalSrc;
+            }, 1500);
+        });
+    });
+});

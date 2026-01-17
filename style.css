@@ -609,3 +609,108 @@ footer {
 .icon.facebook {
     background-image: url("https://img.icons8.com/?size=100&id=118501&format=png&color=000000");
 }
+
+/* Tooltip */
+.contact-btn::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #020617;
+    color: #e5e7eb;
+    padding: 6px 12px;
+    font-size: 0.7rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s ease;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+}
+
+.contact-btn:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+
+/* Icon                                                      animation */
+.contact-btn .icon {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.contact-btn:hover .icon {
+    transform: scale(1.25) rotate(-5deg);
+    filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.9));
+}
+
+
+/* Tooltip success animation */
+.contact-btn.copied::before {
+    content: "Copied!";
+    background: #22c55e;
+    border-color: #22c55e;
+    color: #020617;
+    animation: popFade 1.2s ease forwards;
+}
+
+@keyframes popFade {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px) scale(0.9);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1.1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-8px) scale(1);
+    }
+}
+
+/* Success tick animation */
+.copy-icon.success img {
+    content: url("https://img.icons8.com/ios-filled/50/22c55e/checkmark.png");
+    animation: tickPop 0.4s ease;
+}
+
+@keyframes tickPop {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+
+/* Copy icon inside email button (image based) */
+.copy-icon {
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.75;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.copy-icon img {
+    width: 18px;
+    height: 18px;
+    filter: invert(1);
+    /* Makes icon white for dark theme */
+}
+
+.copy-icon:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
