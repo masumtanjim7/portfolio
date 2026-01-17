@@ -166,7 +166,6 @@ contactButtons.forEach(btn => {
 });
 
 
-/* Copy email with success feedback */
 document.querySelectorAll(".copy-icon").forEach(btn => {
     btn.addEventListener("click", (e) => {
         e.preventDefault();
@@ -175,20 +174,23 @@ document.querySelectorAll(".copy-icon").forEach(btn => {
         const email = btn.dataset.email;
         const parentBtn = btn.closest(".contact-btn");
         const img = btn.querySelector("img");
-        const originalSrc = img.src;
+
+        const copyIcon = "copy.png";
+        const successIcon = "check.png";
 
         navigator.clipboard.writeText(email).then(() => {
 
-            // Tooltip success
+            // Tooltip text
             parentBtn.classList.add("copied");
 
-            // Tick animation
+            // Change icon
+            img.src = successIcon;
             btn.classList.add("success");
 
             setTimeout(() => {
                 parentBtn.classList.remove("copied");
                 btn.classList.remove("success");
-                img.src = originalSrc;
+                img.src = copyIcon;
             }, 1500);
         });
     });

@@ -714,3 +714,8 @@ footer {
     opacity: 1;
     transform: scale(1.2);
 }
+
+/* Success tick animation */
+.copy-icon.success img {
+    animation: tickPop 0.4s ease;
+}
