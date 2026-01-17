@@ -2,89 +2,186 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tanjim Hasan Masum | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- SEO -->
+    <meta name="description" content="Tanjim Hasan Masum – Engineering student, Flutter, IoT & ML developer." />
+    <meta name="keywords" content="Masum, Flutter, IoT, Machine Learning, Portfolio" />
+    <meta name="author" content="Tanjim Hasan Masum" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google Analytics (replace later) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </head>
 
 <body>
 
-    <div class="bg-glow"></div>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
 
-    <nav>
-        <div class="logo">Masum.dev</div>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- Background Particles -->
+    <canvas id="particles"></canvas>
 
-    <header class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Hi, I'm <span>Masum</span></h1>
-                <h2 class="typing"></h2>
-            </div>
-
-            <div class="hero-img">
-                <img src="profile.jpg" alt="Tanjim Hasan Masum">
-            </div>
-        </div>
+    <header>
+        <h1 class="logo">Masum.dev</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
+    <section class="hero">
+        <div class="hero-text">
+            <span class="welcome-badge">WELCOME TO MY PORTFOLIO</span>
+            <h2>Hello, I'm</h2>
+            <h1 class="gradient-text">Md. Masum <br> Billah</h1>
+            <p class="hero-subtitle">
+                <span id="typewriter"></span>
+            </p>
 
-    <section id="about" class="glass reveal">
+            <div class="hero-btns">
+                <a href="#projects" class="btn-primary">Explore Projects</a>
+                <a href="#contact" class="btn-secondary">Hire Me</a>
+            </div>
+        </div>
+
+        <div class="hero-img">
+            <div class="img-wrapper">
+                <img src="profile.jpg" alt="Masum">
+                <div class="status-badge">
+                    <span class="dot"></span> Available for Freelance
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
         <h2>About Me</h2>
         <p>
-            Engineering student at BUBT passionate about building real-world applications
-            using Flutter, IoT, and Machine Learning. I love clean UI, scalable systems,
-            and impactful technology.
+            I am an engineering student passionate about building real-world
+            applications using Flutter, IoT systems, and Machine Learning models.
         </p>
     </section>
 
-    <section id="skills" class="reveal">
+    <section id="skills" class="section">
         <h2>Skills</h2>
-        <div class="skills-grid">
-            <div>Flutter</div>
-            <div>Firebase</div>
-            <div>Python</div>
-            <div>Dart</div>
-            <div>PHP</div>
-            <div>ESP8266</div>
-            <div>Machine Learning</div>
-            <div>Git & GitHub</div>
+
+        <div class="skills">
+            <span class="skill-btn">Flutter</span>
+            <span class="skill-btn">Dart</span>
+            <span class="skill-btn">Firebase</span>
+            <span class="skill-btn">IoT</span>
+            <span class="skill-btn">Python</span>
+            <span class="skill-btn">Machine Learning</span>
+            <span class="skill-btn">PHP</span>
+            <span class="skill-btn">MySQL</span>
         </div>
     </section>
 
-    <section id="projects" class="reveal">
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
         <h2>Projects</h2>
 
-        <div class="project-card">
+        <div class="project-card" data-title="TrendyTreasure" data-desc="Raw PHP & MySQL based e-commerce gift shop."
+            data-link="https://github.com/masumtanjim7">
             <h3>TrendyTreasure</h3>
             <p>Raw PHP & MySQL based e-commerce gift shop.</p>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-title="Laptop Price Predictor" data-desc="Machine Learning regression model."
+            data-link="https://github.com/masumtanjim7">
             <h3>Laptop Price Predictor</h3>
             <p>Machine Learning regression model.</p>
         </div>
 
-        <div class="project-card">
+        <div class="project-card" data-title="IoT Health Monitoring"
+            data-desc="ESP8266 + Flutter + Firebase real-time system." data-link="https://github.com/masumtanjim7">
             <h3>IoT Health Monitoring</h3>
             <p>ESP8266 + Flutter + Firebase real-time system.</p>
         </div>
     </section>
 
-    <section id="contact" class="glass reveal">
-        <h2>Contact</h2>
-        <p>GitHub: <a href="https://github.com/masumtanjim7" target="_blank">masumtanjim7</a></p>
+    <!-- MODAL -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal">
+            <button id="modalClose">&times;</button>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDesc"></p>
+            <a id="modalLink" target="_blank">View on GitHub</a>
+        </div>
+    </div>
+
+    <section id="contact" class="section">
+        <div class="contact-header">
+            <h2>Get In <span class="highlight">Touch</span></h2>
+            <p>Have a project in mind or just want to chat? Feel free to reach out to me!</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Info</h3>
+                <div class="info-item">
+                    <div class="icon">📧</div>
+                    <div>
+                        <span class="label">EMAIL</span>
+                        <p>masumtanjim7@gmail.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="icon">🐙</div>
+                    <div>
+                        <span class="label">GITHUB</span>
+                        <p>/masumtanjim7</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="icon">📍</div>
+                    <div>
+                        <span class="label">LOCATION</span>
+                        <p>Dhaka, Bangladesh</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>FULL NAME</label>
+                        <input type="text" placeholder="Masum">
+                    </div>
+                    <div class="input-group">
+                        <label>EMAIL ADDRESS</label>
+                        <input type="email" placeholder="masumtanjim7@gmail.com">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>SUBJECT</label>
+                    <input type="text" placeholder="Project Inquiry">
+                </div>
+                <div class="input-group">
+                    <label>MESSAGE</label>
+                    <textarea rows="5" placeholder="Tell me more about your project..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+        </div>
     </section>
 
     <footer>
-        © 2026 Tanjim Hasan Masum
+        <p>© 2026 Tanjim Hasan Masum</p>
     </footer>
 
     <script src="script.js"></script>

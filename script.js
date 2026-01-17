@@ -1,25 +1,148 @@
-/* Typing effect */
-const text = "Flutter Developer | IoT Enthusiast | ML Learner";
-let index = 0;
-const typing = document.querySelector(".typing");
+/* Cursor */
+const cursor = document.querySelector(".cursor");
+document.addEventListener("mousemove", e => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+});
 
-function type() {
-    if (index < text.length) {
-        typing.innerHTML += text.charAt(index);
-        index++;
-        setTimeout(type, 80);
-    }
-}
-type();
+/* =========================
+   Magnetic Skill Buttons
+========================= */
 
-/* Scroll animation */
-const reveals = document.querySelectorAll(".reveal");
+const skillButtons = document.querySelectorAll(".skill-btn");
 
-window.addEventListener("scroll", () => {
-    reveals.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) {
-            el.classList.add("active");
+skillButtons.forEach(btn => {
+    btn.addEventListener("mousemove", (e) => {
+        if (window.innerWidth < 768) return;
+
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+    });
+
+    btn.addEventListener("mouseleave", () => {
+        btn.style.transform = "translate(0,0)";
+    });
+});
+
+
+/* Modal */
+const modal = document.getElementById("projectModal");
+const closeBtn = document.getElementById("modalClose");
+const title = document.getElementById("modalTitle");
+const desc = document.getElementById("modalDesc");
+const link = document.getElementById("modalLink");
+
+document.querySelectorAll(".project-card").forEach(card => {
+    card.addEventListener("click", () => {
+        title.innerText = card.dataset.title;
+        desc.innerText = card.dataset.desc;
+        link.href = card.dataset.link;
+        modal.classList.add("active");
+
+        if (typeof gtag === "function") {
+            gtag("event", "project_open", { event_label: card.dataset.title });
         }
     });
+});
+
+closeBtn.addEventListener("click", () => modal.classList.remove("active"));
+modal.addEventListener("click", e => {
+    if (e.target === modal) modal.classList.remove("active");
+});
+document.addEventListener("keydown", e => {
+    if (e.key === "Escape") modal.classList.remove("active");
+});
+
+/* Particles */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+canvas.width = innerWidth;
+canvas.height = innerHeight;
+
+let particles = Array.from({ length: 60 }, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 2 + 1,
+    dx: Math.random() * 0.5,
+    dy: Math.random() * 0.5
+}));
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y > canvas.height) p.y = 0;
+        ctx.fillStyle = "#38bdf8";
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+    });
+    requestAnimationFrame(animate);
+}
+animate();
+
+/* Section Reveal on Scroll */
+
+const observerOptions = { threshold: 0.1 };
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll(".section").forEach(section => {
+    section.style.opacity = "0";
+    section.style.transform = "translateY(20px)";
+    section.style.transition = "all 0.6s ease-out";
+    observer.observe(section);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const textElement = document.getElementById("typewriter");
+    // This matches the text you want from your previous request
+    const textToType = "Building the future with Flutter, IoT, and Machine Learning.";
+    let index = 0;
+
+    function typeOnly() {
+        if (textElement && index < textToType.length) {
+            textElement.textContent += textToType.charAt(index);
+            index++;
+            setTimeout(typeOnly, 100);
+        }
+    }
+
+    // Start the animation
+    typeOnly();
+});
+// Ensure this matches the new text from the reference image
+
+// ... rest of your typing logic ...
+
+const contactForm = document.querySelector('.contact-form');
+
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Simple visual feedback
+    const btn = contactForm.querySelector('button');
+    const originalText = btn.innerText;
+
+    btn.innerText = "Sending...";
+    btn.style.opacity = "0.7";
+
+    // You can integrate EmailJS here later
+    setTimeout(() => {
+        alert("Message sent successfully!");
+        btn.innerText = originalText;
+        btn.style.opacity = "1";
+        contactForm.reset();
+    }, 2000);
 });
