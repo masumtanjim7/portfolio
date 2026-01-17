@@ -195,3 +195,30 @@ document.querySelectorAll(".copy-icon").forEach(btn => {
         });
     });
 });
+/* =========================
+   PROJECT FILTER LOGIC
+========================= */
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projects = document.querySelectorAll(".project-card");
+
+filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        filterButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const filter = btn.dataset.filter;
+
+        projects.forEach(project => {
+            const category = project.dataset.category;
+
+            if (filter === "all" || category === filter) {
+                project.style.display = "flex";
+                project.style.opacity = "1";
+            } else {
+                project.style.display = "none";
+            }
+        });
+    });
+});
