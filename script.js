@@ -218,7 +218,7 @@ if (contactForm) {
         btn.disabled = true;
 
         emailjs.sendForm(
-            "service_fbeyick",   // 🔁 Replace with your Service ID
+            "service_3p9juhd",   // 🔁 Replace with your Service ID
             "template_aq3iakl",  // 🔁 Replace with your Template ID
             this
         )
