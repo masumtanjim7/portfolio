@@ -207,27 +207,37 @@
 
             </div>
 
-            <form class="contact-form">
+            <form class="contact-form" action="send_mail.php" method="POST">
                 <div class="form-row">
                     <div class="input-group">
                         <label>FULL NAME</label>
-                        <input type="text" placeholder="Your Name">
+                        <input type="text" placeholder="Your Name" name="name" required>
                     </div>
+
                     <div class="input-group">
+
                         <label>EMAIL ADDRESS</label>
-                        <input type="email" placeholder="your.email@example.com">
+                        <input type="email" placeholder="your.email@example.com" name="email" required>
                     </div>
                 </div>
+
                 <div class="input-group">
                     <label>SUBJECT</label>
-                    <input type="text" placeholder="Project Inquiry">
+                    <input type="text" placeholder="Project Inquiry" name="subject" required>
                 </div>
+
                 <div class="input-group">
                     <label>MESSAGE</label>
-                    <textarea rows="5" placeholder="Tell me more about your project..."></textarea>
+                    <textarea name="message" placeholder="Tell me more about your project..." rows="5"
+                        required></textarea>
                 </div>
+
                 <button type="submit" class="btn-primary">Send Message</button>
             </form>
+
+
+
+
         </div>
     </section>
 
