@@ -475,3 +475,50 @@ footer {
         border-color: #38bdf8;
     }
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    nav a {
+        margin: 0 10px;
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        /* Puts text below the image on mobile */
+        padding: 60px 20px;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+        /* Smaller font for mobile screens */
+    }
+
+    .gradient-text {
+        font-size: 3rem !important;
+    }
+
+    .img-wrapper {
+        width: 280px;
+        /* Slightly smaller image for mobile */
+        height: 280px;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        /* Stacks contact info and form vertically */
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+}
