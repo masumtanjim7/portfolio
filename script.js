@@ -175,8 +175,8 @@ document.querySelectorAll(".copy-icon").forEach(btn => {
         const parentBtn = btn.closest(".contact-btn");
         const img = btn.querySelector("img");
 
-        const copyIcon = "copy.png";
-        const successIcon = "check.png";
+        const copyIcon = "images/copy.png";
+        const successIcon = "images/check.png";
 
         navigator.clipboard.writeText(email).then(() => {
 
