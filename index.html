@@ -418,17 +418,16 @@ This project demonstrates strong understanding of structured programming, file h
 
             </div>
 
-            <form class="contact-form" action="send_mail.php" method="POST">
+            <form class="contact-form" id="contactForm">
                 <div class="form-row">
                     <div class="input-group">
                         <label>FULL NAME</label>
-                        <input type="text" placeholder="Your Name" name="name" required>
+                        <input type="text" placeholder="Your Name" name="from_name" required>
                     </div>
 
                     <div class="input-group">
-
                         <label>EMAIL ADDRESS</label>
-                        <input type="email" placeholder="your.email@example.com" name="email" required>
+                        <input type="email" placeholder="your.email@example.com" name="from_email" required>
                     </div>
                 </div>
 
@@ -457,6 +456,13 @@ This project demonstrates strong understanding of structured programming, file h
     </footer>
 
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("sLdsNSOq6YxJWMcV4");
+        })();
+    </script>
+
 </body>
 
 </html>

@@ -126,27 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ... rest of your typing logic ...
 
-const contactForm = document.querySelector('.contact-form');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    // Simple visual feedback
-    const btn = contactForm.querySelector('button');
-    const originalText = btn.innerText;
-
-    btn.innerText = "Sending...";
-    btn.style.opacity = "0.7";
-
-    // You can integrate EmailJS here later
-    setTimeout(() => {
-        alert("Message sent successfully!");
-        btn.innerText = originalText;
-        btn.style.opacity = "1";
-        contactForm.reset();
-    }, 2000);
-});
-
 const contactButtons = document.querySelectorAll(".contact-btn");
 
 contactButtons.forEach(btn => {
@@ -222,3 +201,39 @@ filterButtons.forEach(btn => {
         });
     });
 });
+/* =========================
+   EMAILJS CONTACT FORM
+========================= */
+
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const btn = contactForm.querySelector("button");
+        const originalText = btn.innerText;
+
+        btn.innerText = "Sending...";
+        btn.disabled = true;
+
+        emailjs.sendForm(
+            "service_fbeyick",   // 🔁 Replace with your Service ID
+            "template_aq3iakl",  // 🔁 Replace with your Template ID
+            this
+        )
+            .then(() => {
+                alert("Message sent successfully!");
+                contactForm.reset();
+                btn.innerText = originalText;
+                btn.disabled = false;
+            })
+            .catch((error) => {
+                alert("Failed to send message. Please try again.");
+                console.error("EmailJS Error:", error);
+                btn.innerText = originalText;
+                btn.disabled = false;
+            });
+    });
+}
+
