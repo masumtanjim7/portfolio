@@ -135,42 +135,6 @@ nav a {
     transform: translateY(-6px);
 }
 
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.3s;
-}
-
-.modal-overlay.active {
-    opacity: 1;
-    pointer-events: all;
-}
-
-.modal {
-    background: #020617;
-    padding: 30px;
-    border-radius: 16px;
-    max-width: 420px;
-    width: 90%;
-    position: relative;
-}
-
-.modal button {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: #94a3b8;
-    cursor: pointer;
-}
 
 footer {
     text-align: center;
@@ -845,4 +809,153 @@ footer {
     background: rgba(56, 189, 248, 0.3);
     box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
     color: #38bdf8;
+}
+
+/* =====================================================
+   CLEAN, MODERN MODAL — FINAL & CORRECT
+===================================================== */
+
+/* Overlay */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Modal card */
+.modal {
+    position: relative;
+    width: 90%;
+    max-width: 560px;
+    max-height: 90vh;
+
+    padding: 36px 40px;
+    border-radius: 18px;
+
+    background: radial-gradient(circle at top,
+            #020617,
+            #020617 40%,
+            #010314);
+
+    box-shadow:
+        0 0 40px rgba(56, 189, 248, 0.25),
+        0 0 80px rgba(56, 189, 248, 0.12);
+
+    overflow-y: auto;
+    /* scroll ONLY if content is too tall */
+}
+
+/* Title */
+#modalTitle {
+    margin: 0 0 16px;
+    font-size: 1.45rem;
+    line-height: 1.35;
+    color: #e5e7eb;
+}
+
+/* Description */
+#modalDesc {
+    line-height: 1.7;
+    color: #cbd5f5;
+    margin-bottom: 28px;
+}
+
+/* Modern close button */
+.modal button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+    color: #cbd5f5;
+
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+.modal button:hover {
+    background: rgba(56, 189, 248, 0.25);
+    color: #38bdf8;
+    transform: scale(1.08);
+}
+
+/* Optional: subtle scrollbar (only if needed) */
+.modal::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+    background: rgba(56, 189, 248, 0.35);
+    border-radius: 10px;
+}
+
+/* =========================================
+   MODAL SCROLLBAR – MODERN & ADVANCED
+   Paste at VERY END of CSS
+========================================= */
+
+/* Smooth scrolling */
+.modal {
+    scroll-behavior: smooth;
+}
+
+/* WebKit browsers (Chrome, Edge, Brave) */
+.modal::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 10px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg,
+            rgba(56, 189, 248, 0.9),
+            rgba(99, 102, 241, 0.9));
+    border-radius: 10px;
+    box-shadow:
+        0 0 6px rgba(56, 189, 248, 0.6),
+        inset 0 0 3px rgba(255, 255, 255, 0.35);
+}
+
+/* Hover effect */
+.modal::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg,
+            #38bdf8,
+            #a855f7);
+    box-shadow:
+        0 0 10px rgba(56, 189, 248, 0.8);
+}
+
+/* Firefox */
+.modal {
+    scrollbar-width: thin;
+    scrollbar-color: #38bdf8 rgba(15, 23, 42, 0.6);
 }

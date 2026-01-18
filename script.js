@@ -40,21 +40,28 @@ document.querySelectorAll(".project-card").forEach(card => {
         title.innerText = card.dataset.title;
         desc.innerText = card.dataset.desc;
         link.href = card.dataset.link;
+
         modal.classList.add("active");
-
-        if (typeof gtag === "function") {
-            gtag("event", "project_open", { event_label: card.dataset.title });
-        }
     });
+
+
 });
 
-closeBtn.addEventListener("click", () => modal.classList.remove("active"));
+function closeModal() {
+    modal.classList.remove("active");
+
+}
+
+closeBtn.addEventListener("click", closeModal);
+
 modal.addEventListener("click", e => {
-    if (e.target === modal) modal.classList.remove("active");
+    if (e.target === modal) closeModal();
 });
+
 document.addEventListener("keydown", e => {
-    if (e.key === "Escape") modal.classList.remove("active");
+    if (e.key === "Escape") closeModal();
 });
+
 
 /* Particles */
 const canvas = document.getElementById("particles");

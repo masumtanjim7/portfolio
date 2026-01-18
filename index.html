@@ -132,14 +132,61 @@
         <div class="project-filters">
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="c++">C++</button>
-            <button class="filter-btn" data-filter="ml">ML</button>
+            <button class="filter-btn" data-filter="ml">ML & Python</button>
             <button class="filter-btn" data-filter="iot">IoT</button>
             <button class="filter-btn" data-filter="flutter">Flutter</button>
             <button class="filter-btn" data-filter="java">Java</button>
-            <button class="filter-btn" data-filter="javascript">JavaScript</button>
             <button class="filter-btn" data-filter="php">PHP</button>
-            <button class="filter-btn" data-filter="python">Python</button>
+            <button class="filter-btn" data-filter="javascript">JavaScript</button>
         </div>
+
+
+        <div class="project-card" data-title="Stroke Prediction System Using Machine Learning"
+            data-desc="A machine learning–based healthcare application developed to predict the likelihood of stroke using patient demographic, clinical, and lifestyle data.
+
+The system follows a complete end-to-end machine learning pipeline including data preprocessing, feature engineering, handling class imbalance using SMOTE, supervised model training, and performance evaluation. Multiple classification algorithms such as Logistic Regression and Random Forest are applied and compared to identify the best-performing model.
+
+The final trained model is saved and deployed in a Python-based application capable of providing real-time stroke risk predictions. This project demonstrates practical knowledge of machine learning workflows, healthcare analytics, data-driven decision-making, and model deployment."
+            data-link="https://github.com/yourusername/stroke-prediction-ml" data-category="ml">
+
+            <div class="project-img">
+                <img src="images/stroke-prediction-ml.png" alt="Stroke Prediction System Using Machine Learning">
+            </div>
+
+            <div class="project-content">
+                <h3>Stroke Prediction System</h3>
+                <p>
+                    Machine learning–based healthcare application for predicting stroke risk using
+                    patient medical and lifestyle data.
+                </p>
+
+                <div class="project-tags">
+                    <span>Machine Learning</span>
+                    <span>Healthcare Analytics</span>
+                    <span>Stroke Prediction</span>
+                    <span>Supervised Learning</span>
+                    <span>Binary Classification</span>
+                    <span>Random Forest</span>
+                    <span>Logistic Regression</span>
+                    <span>SMOTE</span>
+                    <span>Data Preprocessing</span>
+                    <span>Feature Engineering</span>
+                    <span>Model Evaluation</span>
+                    <span>SHAP Explainability</span>
+                    <span>Scikit-learn</span>
+                    <span>Python</span>
+                    <span>Joblib</span>
+                    <span>Model Deployment</span>
+                    <span>Healthcare ML</span>
+                    <span>End-to-End ML Project</span>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
 
         <div class="project-card" data-title="Laptop Price Predictor"
             data-desc="A machine learning–based web application that predicts laptop prices based on hardware and software specifications.
@@ -147,7 +194,7 @@
 The system is trained on a real-world laptop dataset and applies regression algorithms to learn pricing patterns. Users can select specifications such as brand, processor, RAM, storage, GPU, operating system, screen size, resolution, and weight to get an instant price prediction.
 
 The trained model is deployed using Streamlit, providing a clean and interactive user interface. This project demonstrates end-to-end machine learning workflow including data preprocessing, feature engineering, model training, evaluation, and deployment."
-            data-link="https://github.com/yourusername/laptop-price-predictor" data-category="machine-learning">
+            data-link="https://github.com/yourusername/laptop-price-predictor" data-category="ml">
 
             <div class="project-img">
                 <img src="images/laptop-price-predictor.png" alt="Laptop Price Predictor">
@@ -527,16 +574,26 @@ This project demonstrates strong understanding of structured programming, file h
     <!-- MODAL -->
     <div class="modal-overlay" id="projectModal">
         <div class="modal">
-            <button id="modalClose">&times;</button>
-            <h2 id="modalTitle"></h2>
-            <p id="modalDesc"></p>
-            <a id="modalLink" class="github-btn" target="_blank">
-                <i class="icon github"></i>
-                View on GitHub
-            </a>
+
+            <!-- HEADER -->
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <button id="modalClose">&times;</button>
+            </div>
+
+            <!-- CONTENT -->
+            <div class="modal-content">
+                <p id="modalDesc"></p>
+
+                <a id="modalLink" class="github-btn" target="_blank">
+                    <i class="icon github"></i>
+                    View on GitHub
+                </a>
+            </div>
 
         </div>
     </div>
+
 
     <section id="contact" class="section">
         <div class="contact-header">
