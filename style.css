@@ -32,31 +32,33 @@ header {
     color: #38bdf8;
 }
 
-nav a {
-    margin-left: 20px;
-    color: #cbd5f5;
-    text-decoration: none;
-}
-
-/* Nav Resume button */
-nav a.nav-resume {
-    display: inline-flex;
+/* ✅ NAV ALIGN FIX (all buttons same level) */
+header nav {
+    display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: rgba(56, 189, 248, 0.12);
-    border: 1px solid rgba(56, 189, 248, 0.25);
-    color: #e5e7eb;
-    font-weight: 600;
-    transition: 0.3s;
+    gap: 12px;
+    /* spacing between buttons */
 }
 
-nav a.nav-resume:hover {
-    background: rgba(56, 189, 248, 0.30);
-    box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
-    color: #38bdf8;
+header nav .nav-item {
+    margin: 0;
+    /* IMPORTANT: no margin-left */
+    padding: 8px 14px;
+    line-height: 1;
+    /* IMPORTANT: fixes “lower” look */
+    display: inline-flex;
+    /* IMPORTANT: same baseline for all */
+    align-items: center;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
 }
+
+/* Optional: make Resume a bit stronger (same height) */
+header nav .nav-resume {
+    font-weight: 700;
+}
+
 
 .hero {
     display: flex;
@@ -222,6 +224,42 @@ footer {
 
 .skill-btn:hover::after {
     left: 120%;
+}
+
+/* ✅ Make header nav links use skill-btn look, but sized for nav */
+header nav .nav-item {
+    margin: 0 0 0 12px;
+    padding: 8px 14px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    /* ✅ make About/Skills/Projects/Contact bold too */
+}
+
+/* Optional: Resume can be extra bold if you want */
+header nav .nav-resume {
+    font-weight: 700;
+}
+
+/* Mobile nav tweak */
+@media (max-width: 768px) {
+    header nav .nav-item {
+        margin: 6px 8px;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+
+/* Make Hire Me (skill-btn) fit nicely in hero button row */
+.hero-btns .btn-hire {
+    margin: 0;
+    /* remove chip margin */
+    padding: 12px 25px;
+    /* match your hero buttons size */
+    text-decoration: none;
+    /* remove underline */
+    font-weight: 700;
 }
 
 /* Click feedback */
@@ -469,10 +507,6 @@ footer {
         text-align: center;
     }
 
-    nav a {
-        margin: 0 10px;
-        font-size: 0.9rem;
-    }
 
     .hero {
         flex-direction: column-reverse;
