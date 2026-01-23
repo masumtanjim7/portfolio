@@ -1154,3 +1154,25 @@ header nav .nav-item {
         filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.25));
     }
 }
+
+
+/* =========================
+   STYLISH FOOTER 
+========================= */
+footer {
+    padding: 18px 16px;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    color: rgba(229, 231, 235, 0.78);
+}
+
+footer p strong {
+    color: rgba(229, 231, 235, 0.95);
+    font-weight: 700;
+}
