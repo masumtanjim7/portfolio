@@ -1058,79 +1058,99 @@ header nav .nav-item {
 /* Mobile layout improvements */
 @media (max-width: 768px) {
 
-    header {
-        padding: 12px 14px;
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-
-    /* Make logo smaller + nicer */
-    .logo {
-        display: inline-flex;
-        padding: 6px 10px;
-        border-radius: 14px;
-        background: rgba(2, 6, 23, 0.35);
-        border: 1px solid rgba(56, 189, 248, 0.12);
-    }
-
-    .logo-img {
-        height: 34px;
-        /* smaller than your current 40px */
-        width: auto;
-        max-width: 200px;
-    }
-
-    /* Nav wraps into 2 lines neatly */
+    /* ✅ Force all nav buttons in one row */
     header nav {
-        width: 100%;
+        flex-wrap: nowrap !important;
         justify-content: center;
-        flex-wrap: wrap;
-        gap: 8px;
+        gap: 6px;
+        overflow-x: auto;
+        /* safety: if super small phone, allow scroll */
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Firefox hide scrollbar */
     }
 
-    header nav .nav-item {
-        padding: 7px 12px;
-        font-size: 0.85rem;
-        margin: 0;
-    }
-
-    /* Hero spacing + centering */
-    .hero {
-        padding: 56px 16px;
-        gap: 28px;
-    }
-
-    .hero-img {
-        margin-right: 0;
-        /* removes desktop offset */
-    }
-
-    .img-wrapper {
-        width: 260px;
-        height: 260px;
-        margin: 0 auto;
-    }
-
-    .status-badge {
-        right: 0;
-        /* avoids badge going outside */
-        bottom: 8px;
-        font-size: 0.72rem;
-    }
-
-    .hero-btns {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    /* Section padding on mobile */
-    .section {
-        padding: 60px 18px;
-    }
-
-    /* Cursor off on mobile */
-    .cursor {
+    header nav::-webkit-scrollbar {
         display: none;
     }
+
+    /* Chrome hide scrollbar */
+
+    /* ✅ Make buttons smaller to fit one line */
+    header nav .nav-item {
+        padding: 6px 10px;
+        font-size: 0.78rem;
+        border-radius: 999px;
+    }
+}
+
+
+/* Make logo smaller + nicer */
+.logo {
+    display: inline-flex;
+    padding: 6px 10px;
+    border-radius: 14px;
+    background: rgba(2, 6, 23, 0.35);
+    border: 1px solid rgba(56, 189, 248, 0.12);
+}
+
+.logo-img {
+    height: 34px;
+    /* smaller than your current 40px */
+    width: auto;
+    max-width: 200px;
+}
+
+/* Nav wraps into 2 lines neatly */
+header nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+header nav .nav-item {
+    padding: 7px 12px;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* Hero spacing + centering */
+.hero {
+    padding: 56px 16px;
+    gap: 28px;
+}
+
+.hero-img {
+    margin-right: 0;
+    /* removes desktop offset */
+}
+
+.img-wrapper {
+    width: 260px;
+    height: 260px;
+    margin: 0 auto;
+}
+
+.status-badge {
+    right: 0;
+    /* avoids badge going outside */
+    bottom: 8px;
+    font-size: 0.72rem;
+}
+
+.hero-btns {
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Section padding on mobile */
+.section {
+    padding: 60px 18px;
+}
+
+/* Cursor off on mobile */
+.cursor {
+    display: none;
+}
 }
