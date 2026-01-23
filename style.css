@@ -537,13 +537,19 @@ header nav .nav-resume {
         text-align: center;
     }
 
-
     .hero {
         flex-direction: column-reverse;
-        /* Puts text below the image on mobile */
+        /* ✅ image first, text after */
+        align-items: center;
+        /* ✅ center everything */
         padding: 60px 20px;
         text-align: center;
         gap: 40px;
+    }
+
+    /* ✅ remove desktop right shift for mobile */
+    .hero-img {
+        margin-right: 0;
     }
 
     .hero-text h1 {
@@ -553,6 +559,18 @@ header nav .nav-resume {
 
     .gradient-text {
         font-size: 3rem !important;
+    }
+
+    /* ✅ subtitle tuning for mobile */
+    .hero-subtitle {
+        font-size: 1.2rem;
+        line-height: 1.4;
+        margin-top: 10px;
+    }
+
+    /* ✅ IMPORTANT if your script uses \n line breaks */
+    #typewriter {
+        white-space: pre-line;
     }
 
     .img-wrapper {
@@ -570,6 +588,7 @@ header nav .nav-resume {
         flex-direction: column;
     }
 }
+
 
 /* =========================
    CONTACT BUTTONS

@@ -112,13 +112,21 @@ document.querySelectorAll(".section").forEach(section => {
     observer.observe(section);
 });
 
+// Existing code around line 115…
 document.addEventListener("DOMContentLoaded", () => {
     const textElement = document.getElementById("typewriter");
-    // This matches the text you want from your previous request
-    const textToType = "Full-Stack Flutter & Web Developer • IoT • Machine Learning • Deep Learning.";
+
+    // Add or update this block starting at line 125:
+    let textToType;
+    if (window.innerWidth < 768) {
+        // Mobile view: break the tagline into multiple lines
+        textToType = "Full-Stack Flutter & Web Developer\nIoT • Machine Learning\nDeep Learning.";
+    } else {
+        // Desktop view: keep it on one line
+        textToType = "Full-Stack Flutter & Web Developer • IoT • Machine Learning • Deep Learning.";
+    }
 
     let index = 0;
-
     function typeOnly() {
         if (textElement && index < textToType.length) {
             textElement.textContent += textToType.charAt(index);
@@ -126,10 +134,9 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(typeOnly, 100);
         }
     }
-
-    // Start the animation
     typeOnly();
 });
+
 // Ensure this matches the new text from the reference image
 
 // ... rest of your typing logic ...
