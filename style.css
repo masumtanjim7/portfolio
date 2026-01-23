@@ -32,6 +32,39 @@ header {
     color: #38bdf8;
 }
 
+
+header {
+    align-items: center;
+    /* keeps logo + nav perfectly aligned */
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.logo-img {
+    height: 60px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.25));
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.logo:hover .logo-img {
+    transform: scale(1.04);
+    filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.45));
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        height: 40px;
+    }
+}
+
+
 /* ✅ NAV ALIGN FIX (all buttons same level) */
 header nav {
     display: flex;
@@ -99,9 +132,6 @@ header nav .nav-resume {
     filter: grayscale(100%);
     transition: 0.4s;
 }
-
-
-
 
 .img-wrapper:hover img {
     filter: grayscale(0%);
