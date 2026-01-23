@@ -38,6 +38,26 @@ nav a {
     text-decoration: none;
 }
 
+/* Nav Resume button */
+nav a.nav-resume {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    color: #e5e7eb;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a.nav-resume:hover {
+    background: rgba(56, 189, 248, 0.30);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
+    color: #38bdf8;
+}
+
 .hero {
     display: flex;
     justify-content: space-between;
