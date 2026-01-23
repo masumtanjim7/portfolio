@@ -1134,3 +1134,23 @@ header nav .nav-item {
         display: none;
     }
 }
+
+@media (max-width: 768px) {
+
+    /* Remove logo badge/border on mobile */
+    .logo {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    /* Make logo bigger on mobile */
+    .logo-img {
+        height: 48px !important;
+        /* increase size */
+        max-width: 240px;
+        filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.25));
+    }
+}
