@@ -115,7 +115,7 @@ document.querySelectorAll(".section").forEach(section => {
 document.addEventListener("DOMContentLoaded", () => {
     const textElement = document.getElementById("typewriter");
     // This matches the text you want from your previous request
-    const textToType = "Flutter & Web Developer (JavaScript, PHP) building real-world apps with IoT, Machine Learning & Deep Learning.";
+    const textToType = "Full-Stack Flutter & Web Developer | IoT • Machine Learning • Deep Learning.";
     let index = 0;
 
     function typeOnly() {
