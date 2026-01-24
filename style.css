@@ -20,7 +20,6 @@ canvas {
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 20px 40px;
     position: sticky;
     top: 0;
@@ -31,6 +30,12 @@ header {
 
 .logo {
     color: #38bdf8;
+}
+
+
+header {
+    align-items: center;
+    /* keeps logo + nav perfectly aligned */
 }
 
 .logo {
@@ -291,6 +296,13 @@ header nav .nav-resume {
 .skill-btn:active {
     transform: scale(0.92);
 }
+
+#typewriter {
+    border-right: 2px solid #38bdf8;
+    padding-right: 5px;
+    animation: blink 0.7s infinite;
+}
+
 @keyframes blink {
 
     0%,
@@ -504,7 +516,17 @@ header nav .nav-resume {
     animation: blink 0.7s step-end infinite;
 }
 
+@keyframes blink {
 
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: #38bdf8;
+    }
+}
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
@@ -560,6 +582,10 @@ header nav .nav-resume {
     .contact-container {
         grid-template-columns: 1fr;
         /* Stacks contact info and form vertically */
+    }
+
+    .form-row {
+        flex-direction: column;
     }
 }
 
@@ -757,6 +783,10 @@ header nav .nav-resume {
 }
 
 /* Success tick animation */
+.copy-icon.success img {
+    animation: tickPop 0.4s ease;
+}
+
 /* =========================
    PROJECT TAGS
 ========================= */
