@@ -24,7 +24,8 @@ skillButtons.forEach(btn => {
         if (window.innerWidth < 768) return;
 
         const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
+        }
+const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
 
         btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
@@ -34,8 +35,6 @@ skillButtons.forEach(btn => {
         btn.style.transform = "translate(0,0)";
     });
 });
-}
-
 
 
 /* Modal */
@@ -75,14 +74,21 @@ document.addEventListener("keydown", e => {
 
 /* Particles */
 const canvas = document.getElementById("particles");
-const isMobile = window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches;
 
-if (canvas && !isMobile) {
+if (canvas) {
     const ctx = canvas.getContext("2d");
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
 
-    let particles = Array.from({ length: 60 }, () => ({
+    function sizeCanvas() {
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+    }
+    sizeCanvas();
+
+    // Keep the neon background on mobile, but make it lighter
+    const isSmallScreen = window.innerWidth < 768;
+    const particleCount = isSmallScreen ? 35 : 60;
+
+    let particles = Array.from({ length: particleCount }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         r: Math.random() * 2 + 1,
@@ -90,25 +96,42 @@ if (canvas && !isMobile) {
         dy: Math.random() * 0.5
     }));
 
-    function animate() {
+    // Cap FPS on small screens for smoother performance
+    const fps = isSmallScreen ? 30 : 60;
+    const frameMs = 1000 / fps;
+    let last = 0;
+
+    function animate(now = 0) {
+        if (now - last < frameMs) {
+            requestAnimationFrame(animate);
+            return;
+        }
+        last = now;
+
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#38bdf8";
+
         particles.forEach(p => {
             p.x += p.dx;
             p.y += p.dy;
 
             if (p.x > canvas.width) p.x = 0;
             if (p.y > canvas.height) p.y = 0;
-            ctx.fillStyle = "#38bdf8";
+
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
             ctx.fill();
         });
+
         requestAnimationFrame(animate);
     }
     animate();
-} else if (canvas) {
-    canvas.style.display = "none";
+
+    window.addEventListener("resize", () => {
+        sizeCanvas();
+    }, { passive: true });
 }
+
 
 /* Section Reveal on Scroll */
 
@@ -160,7 +183,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const contactButtons = document.querySelectorAll(".contact-btn");
 
-if (canHover) {
 contactButtons.forEach(btn => {
     btn.addEventListener("mousemove", (e) => {
         if (window.innerWidth < 768) return;
@@ -176,8 +198,6 @@ contactButtons.forEach(btn => {
         btn.style.transform = "translate(0,0)";
     });
 });
-}
-
 
 
 document.querySelectorAll(".copy-icon").forEach(btn => {
