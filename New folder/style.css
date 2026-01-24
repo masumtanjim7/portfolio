@@ -20,7 +20,6 @@ canvas {
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 20px 40px;
     position: sticky;
     top: 0;
@@ -34,6 +33,10 @@ header {
 }
 
 
+header {
+    align-items: center;
+    /* keeps logo + nav perfectly aligned */
+}
 
 .logo {
     display: inline-flex;
@@ -55,6 +58,11 @@ header {
     filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.45));
 }
 
+@media (max-width: 768px) {
+    .logo-img {
+        height: 40px;
+    }
+}
 
 
 /* ✅ NAV ALIGN FIX (all buttons same level) */
@@ -264,6 +272,13 @@ header nav .nav-resume {
 }
 
 /* Mobile nav tweak */
+@media (max-width: 768px) {
+    header nav .nav-item {
+        margin: 6px 8px;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
 
 
 /* Make Hire Me (skill-btn) fit nicely in hero button row */
@@ -282,6 +297,23 @@ header nav .nav-resume {
     transform: scale(0.92);
 }
 
+#typewriter {
+    border-right: 2px solid #38bdf8;
+    padding-right: 5px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: #38bdf8;
+    }
+}
 
 /* Badge above the name */
 .welcome-badge {
@@ -456,6 +488,15 @@ header nav .nav-resume {
 }
 
 /* Mobile Responsive */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
 
 .hero-subtitle {
     margin-top: 15px;
@@ -479,7 +520,7 @@ header nav .nav-resume {
 
     from,
     to {
-        border-color: transparent;
+        border-color: transparent
     }
 
     50% {
@@ -488,6 +529,65 @@ header nav .nav-resume {
 }
 
 /* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        /* ✅ image first, text after */
+        align-items: center;
+        /* ✅ center everything */
+        padding: 60px 20px;
+        text-align: center;
+        gap: 40px;
+    }
+
+    /* ✅ remove desktop right shift for mobile */
+    .hero-img {
+        margin-right: 0;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+        /* Smaller font for mobile screens */
+    }
+
+    .gradient-text {
+        font-size: 3rem !important;
+    }
+
+    /* ✅ subtitle tuning for mobile */
+    .hero-subtitle {
+        font-size: 1.2rem;
+        line-height: 1.4;
+        margin-top: 10px;
+    }
+
+    /* ✅ IMPORTANT if your script uses \n line breaks */
+    #typewriter {
+        white-space: pre-line;
+    }
+
+    .img-wrapper {
+        width: 280px;
+        /* Slightly smaller image for mobile */
+        height: 280px;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        /* Stacks contact info and form vertically */
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+}
 
 
 /* =========================
@@ -682,6 +782,10 @@ header nav .nav-resume {
     transform: scale(1.2);
 }
 
+/* Success tick animation */
+.copy-icon.success img {
+    animation: tickPop 0.4s ease;
+}
 
 /* =========================
    PROJECT TAGS
@@ -769,6 +873,17 @@ header nav .nav-resume {
 }
 
 /* Mobile */
+@media (max-width: 768px) {
+    .project-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .project-img {
+        width: 100%;
+        height: 160px;
+    }
+}
 
 /* =========================
    PROJECT FILTERS
@@ -960,7 +1075,104 @@ header nav .nav-item {
 }
 
 /* Mobile layout improvements */
+@media (max-width: 768px) {
 
+    header {
+        padding: 12px 14px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    /* Make logo smaller + nicer */
+    .logo {
+        display: inline-flex;
+        padding: 6px 10px;
+        border-radius: 14px;
+        background: rgba(2, 6, 23, 0.35);
+        border: 1px solid rgba(56, 189, 248, 0.12);
+    }
+
+    .logo-img {
+        height: 35.5px;
+        /* smaller than your current 40px */
+        width: auto;
+        max-width: 200px;
+    }
+
+    /* Nav wraps into 2 lines neatly */
+    header nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    header nav .nav-item {
+        padding: 7px 12px;
+        font-size: 0.85rem;
+        margin: 0;
+    }
+
+    /* Hero spacing + centering */
+    .hero {
+        padding: 56px 16px;
+        gap: 28px;
+    }
+
+    .hero-img {
+        margin-right: 0;
+        /* removes desktop offset */
+    }
+
+    .img-wrapper {
+        width: 260px;
+        height: 260px;
+        margin: 0 auto;
+    }
+
+    .status-badge {
+        right: 0;
+        /* avoids badge going outside */
+        bottom: 8px;
+        font-size: 0.72rem;
+    }
+
+    .hero-btns {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Section padding on mobile */
+    .section {
+        padding: 60px 18px;
+    }
+
+    /* Cursor off on mobile */
+    .cursor {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Remove logo badge/border on mobile */
+    .logo {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+    }
+
+    /* Make logo bigger on mobile */
+    .logo-img {
+        height: 48px !important;
+        /* increase size */
+        max-width: 240px;
+        filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.25));
+    }
+}
 
 
 /* =========================
@@ -982,116 +1194,4 @@ footer p {
 footer p strong {
     color: rgba(229, 231, 235, 0.95);
     font-weight: 700;
-}
-
-/* =====================================================
-   MOBILE (max-width: 768px) — consolidated overrides
-   ===================================================== */
-@media (max-width: 768px) {
-
-    /* Header / Nav */
-    header {
-        padding: 12px 14px;
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-
-    .logo-img {
-        height: 44px;
-        width: auto;
-        max-width: 240px;
-    }
-
-    header nav {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-
-    header nav .nav-item {
-        margin: 0;
-        padding: 7px 12px;
-        font-size: 0.85rem;
-    }
-
-    /* Hero */
-    .hero {
-        flex-direction: column-reverse; /* image first, text after */
-        align-items: center;
-        padding: 56px 16px;
-        text-align: center;
-        gap: 28px;
-    }
-
-    .hero-img {
-        margin-right: 0; /* remove desktop offset */
-    }
-
-    .hero-text h1 {
-        font-size: 2.2rem;
-    }
-
-    .gradient-text {
-        font-size: 3rem !important;
-    }
-
-    .hero-subtitle {
-        font-size: 1.2rem;
-        line-height: 1.4;
-        margin-top: 10px;
-    }
-
-    /* IMPORTANT if your script uses \n line breaks */
-    #typewriter {
-        white-space: pre-line;
-    }
-
-    .img-wrapper {
-        width: 260px;
-        height: 260px;
-        margin: 0 auto;
-    }
-
-    .status-badge {
-        right: 0;
-        bottom: 8px;
-        font-size: 0.72rem;
-    }
-
-    .hero-btns {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    /* Sections */
-    .section {
-        padding: 60px 18px;
-    }
-
-    /* Cursor off on mobile */
-    .cursor {
-        display: none;
-    }
-
-    /* Projects */
-    .project-card {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .project-img {
-        width: 100%;
-        height: 160px;
-    }
-
-    /* Contact */
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-    }
 }

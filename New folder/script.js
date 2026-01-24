@@ -1,15 +1,9 @@
 /* Cursor */
-const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-
 const cursor = document.querySelector(".cursor");
-if (cursor && canHover) {
-    document.addEventListener("mousemove", e => {
-        cursor.style.left = e.clientX + "px";
-        cursor.style.top = e.clientY + "px";
-    });
-} else if (cursor) {
-    cursor.style.display = "none";
-}
+document.addEventListener("mousemove", e => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+});
 
 /* =========================
    Magnetic Skill Buttons
@@ -17,8 +11,6 @@ if (cursor && canHover) {
 
 const skillButtons = document.querySelectorAll(".skill-btn");
 
-
-if (canHover) {
 skillButtons.forEach(btn => {
     btn.addEventListener("mousemove", (e) => {
         if (window.innerWidth < 768) return;
@@ -34,8 +26,6 @@ skillButtons.forEach(btn => {
         btn.style.transform = "translate(0,0)";
     });
 });
-}
-
 
 
 /* Modal */
@@ -75,40 +65,33 @@ document.addEventListener("keydown", e => {
 
 /* Particles */
 const canvas = document.getElementById("particles");
-const isMobile = window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches;
+const ctx = canvas.getContext("2d");
+canvas.width = innerWidth;
+canvas.height = innerHeight;
 
-if (canvas && !isMobile) {
-    const ctx = canvas.getContext("2d");
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
+let particles = Array.from({ length: 60 }, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 2 + 1,
+    dx: Math.random() * 0.5,
+    dy: Math.random() * 0.5
+}));
 
-    let particles = Array.from({ length: 60 }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 2 + 1,
-        dx: Math.random() * 0.5,
-        dy: Math.random() * 0.5
-    }));
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-            p.x += p.dx;
-            p.y += p.dy;
-
-            if (p.x > canvas.width) p.x = 0;
-            if (p.y > canvas.height) p.y = 0;
-            ctx.fillStyle = "#38bdf8";
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.fill();
-        });
-        requestAnimationFrame(animate);
-    }
-    animate();
-} else if (canvas) {
-    canvas.style.display = "none";
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y > canvas.height) p.y = 0;
+        ctx.fillStyle = "#38bdf8";
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+    });
+    requestAnimationFrame(animate);
 }
+animate();
 
 /* Section Reveal on Scroll */
 
@@ -160,7 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const contactButtons = document.querySelectorAll(".contact-btn");
 
-if (canHover) {
 contactButtons.forEach(btn => {
     btn.addEventListener("mousemove", (e) => {
         if (window.innerWidth < 768) return;
@@ -176,8 +158,6 @@ contactButtons.forEach(btn => {
         btn.style.transform = "translate(0,0)";
     });
 });
-}
-
 
 
 document.querySelectorAll(".copy-icon").forEach(btn => {
