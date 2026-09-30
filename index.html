@@ -27,7 +27,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3BSWZMJ9ZK"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() {dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-3BSWZMJ9ZK');
     </script>
@@ -247,6 +247,132 @@ Planned future upgrades include:
 
             </div>
         </div>
+
+
+        <div class="project-card"
+            data-title="CricketOps: Real-Time Cricket Scoring, Tournament Management & Broadcast Platform" data-desc="CricketOps is a full-stack real-time cricket scoring, tournament operations, and broadcast platform designed to manage the complete lifecycle of a cricket match from ball-by-ball scoring to live score distribution and broadcast overlays.
+
+The core architecture follows a ledger-first scoring model where every delivery is treated as an authoritative cricket event rather than simply updating a scoreboard value. From each recorded delivery, the system can derive match score, batsman statistics, bowler figures, partnerships, overs, wickets, commentary, and other match information while maintaining a consistent source of truth.
+
+The backend is built around Django using Django REST Framework for APIs and Django Channels for real-time WebSocket communication. PostgreSQL is used as the primary relational database while Redis supports real-time communication, caching, and asynchronous operations. The system is designed around Django ASGI so REST APIs and WebSocket connections can operate together efficiently.
+
+A major focus of CricketOps is scoring reliability. The scoring engine is designed with database transactions, row-level locking, idempotency keys, and version checks to reduce duplicate or conflicting scoring operations. Real-time updates are published only after the corresponding database transaction has been successfully committed, helping ensure that viewers never receive a match state that was not permanently stored.
+
+The platform also supports score correction and undo workflows while preserving an audit trail. Instead of treating match scoring as disposable editable data, the system maintains historical scoring events so incorrect deliveries can be corrected and dependent statistics recalculated consistently.
+
+CricketOps is designed for multiple cricket formats including T20, ODI, limited-over matches, local tournaments, and configurable competition rules. Tournament management features include teams, players, fixtures, match operations, standings, points tables, and Net Run Rate calculations.
+
+The mobile scoring application is built with Flutter and is designed for scorers operating directly from cricket grounds. One of the most important features is offline-first scoring support. When internet connectivity becomes unstable, scoring commands can be stored locally and synchronized with the server when the connection is restored. Idempotency and version validation help prevent duplicated deliveries and match-state conflicts during synchronization.
+
+For spectators and tournament viewers, match updates can be distributed in real time using WebSockets so scores and statistics can automatically update without requiring page refreshes.
+
+CricketOps also includes a broadcast-focused architecture for OBS Studio and PRISM Live Studio. Browser-based overlays can consume the same real-time match data used by the scorer and public applications, allowing live streams to automatically display scores, overs, batsmen, bowlers, wickets, team logos, sponsor information, and other match graphics without manually updating broadcast elements.
+
+The overall system follows a single-source-of-truth architecture:
+
+Scorer records a delivery → Backend validates the command → Delivery is stored in the match ledger → Match state and statistics are calculated → Database transaction is committed → WebSocket events are published → Mobile, Web, and Broadcast interfaces update in real time.
+
+The project is structured as a scalable cricket operations platform rather than only a scoreboard application. Its objective is to connect scoring, tournament administration, live match viewing, offline ground operations, and digital broadcasting through one centralized cricket data infrastructure.
+
+
+Future Vision......
+CricketOps has the potential to grow into a complete digital ecosystem for professional, academy, university, corporate, and local cricket tournaments.
+        Planned future expansion can include:
+        • Advanced player career profiles and historical statistics
+        • Tournament and league analytics dashboards
+        • Automated player rankings and leaderboards
+        • Live commentary and match timeline visualization
+        • Ball-by-ball wagon wheels and shot charts
+        • Manhattan charts and run-rate analysis
+        • Advanced bowling and batting analytics
+        • Player performance comparison
+        • AI-powered match insights and predictions
+        • Automated highlight detection from match events
+        • QR-based player and team registration
+        • Cricket academy and club management
+        • Digital tournament registration and payments
+        • Sponsor management and advertising controls
+        • Multi-language support
+        • Push notifications for wickets, milestones, and match results
+        • Public APIs for third-party cricket applications
+        • Advanced OBS graphics and animated broadcast packages
+        • Cloud deployment and horizontal scaling
+        • Monitoring, logging, automated backups, and production observability
+        • Expansion into a complete cricket data and tournament infrastructure platform"
+            data-link="https://github.com/masumtanjim7/CricketOps-by-SpideyTech.git"
+            data-category="webdev backend mobile realtime database api django flutter">
+
+            <div class="project-img">
+                <img src="images/cricketops.png"
+                    alt="CricketOps: Real-Time Cricket Scoring, Tournament Management & Broadcast Platform">
+            </div>
+
+            <div class="project-content">
+                <h3>
+                    CricketOps: Real-Time Cricket Scoring, Tournament Management & Broadcast Platform
+                </h3>
+
+                <p>
+                    Full-stack cricket operations platform featuring ledger-based ball-by-ball scoring,
+                    tournament management, Flutter mobile scoring, offline synchronization, WebSocket live
+                    updates, and OBS broadcast overlays powered by Django, PostgreSQL, Redis, and Flutter.
+                </p>
+
+                <div class="project-tags">
+                    <span>Full Stack Development</span>
+                    <span>Cricket Scoring System</span>
+                    <span>Tournament Management</span>
+                    <span>Real-Time Application</span>
+                    <span>Ball-by-Ball Scoring</span>
+                    <span>Ledger-Based Architecture</span>
+                    <span>Event-Driven Architecture</span>
+                    <span>Scoring Engine</span>
+                    <span>Django</span>
+                    <span>Django REST Framework</span>
+                    <span>Django Channels</span>
+                    <span>Django ASGI</span>
+                    <span>REST API</span>
+                    <span>WebSocket</span>
+                    <span>PostgreSQL</span>
+                    <span>Redis</span>
+                    <span>Flutter</span>
+                    <span>Mobile App</span>
+                    <span>Offline-First</span>
+                    <span>Offline Sync</span>
+                    <span>Idempotency</span>
+                    <span>Database Transactions</span>
+                    <span>Row-Level Locking</span>
+                    <span>Optimistic Versioning</span>
+                    <span>Audit Trail</span>
+                    <span>Score Correction</span>
+                    <span>Live Score</span>
+                    <span>Live Match Updates</span>
+                    <span>Match Statistics</span>
+                    <span>Player Statistics</span>
+                    <span>Batting Statistics</span>
+                    <span>Bowling Statistics</span>
+                    <span>Partnership Tracking</span>
+                    <span>Fixtures</span>
+                    <span>Points Table</span>
+                    <span>Net Run Rate</span>
+                    <span>T20</span>
+                    <span>ODI</span>
+                    <span>Limited Overs Cricket</span>
+                    <span>Configurable Cricket Rules</span>
+                    <span>OBS Integration</span>
+                    <span>PRISM Live Studio</span>
+                    <span>Broadcast Overlay</span>
+                    <span>Live Streaming</span>
+                    <span>Docker</span>
+                    <span>Docker Compose</span>
+                    <span>Scalable Architecture</span>
+                    <span>Single Source of Truth</span>
+                    <span>Production-Oriented Architecture</span>
+                </div>
+
+            </div>
+        </div>
+
 
 
         <div class="project-card" data-title="Stroke Prediction System Using Machine Learning"
