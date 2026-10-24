@@ -120,10 +120,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let textToType;
     if (window.innerWidth < 768) {
         // Mobile view: break the tagline into multiple lines
-        textToType = "Full-Stack Flutter & Web Developer\nIoT • Machine Learning\nDeep Learning.";
+        textToType = "Executive Engineer (AI & Mobile)\nFull-Stack Developer • AI Automation\nApplied ML & IoT";
     } else {
         // Desktop view: keep it on one line
-        textToType = "Full-Stack Flutter & Web Developer • IoT • Machine Learning • Deep Learning.";
+        textToType = "Executive Engineer (AI & Mobile) • Full-Stack Developer • AI Automation • Applied ML & IoT";
     }
 
     let index = 0;
