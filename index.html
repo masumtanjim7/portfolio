@@ -485,6 +485,74 @@ The final trained model is saved and deployed in a Python-based application capa
         </div>
 
 
+        <div class="project-card"
+            data-title="SiliconSense by SpideyTech: PC Strength, Balance &amp; Bottleneck Analyzer"
+            data-desc="SiliconSense is a full-stack PC analysis platform I developed under SpideyTech to help users understand their computer's performance, identify component imbalances, compare configurations, and decide what to upgrade first.
+
+Users select their CPU, GPU, RAM, storage, and intended workload. The system evaluates the build using workload-specific benchmark weights for Gaming, Web Development, Video Editing and 3D, Local AI and LLMs, or Office and Browsing. Performance and balance are calculated separately, allowing the application to explain why a powerful configuration can still contain a limiting component.
+
+At the core is a deterministic Python scoring pipeline. Benchmark observations are aggregated and converted into percentile-based scores, then combined using versioned workload rules. The results include a performance tier, balance status, confidence level, metric contributions, bottleneck explanations, and prioritized upgrade recommendations. Missing benchmark evidence is explicitly flagged and excluded rather than silently treated as zero, while confidence accounts for evidence coverage, sample counts, and data freshness.
+
+The web interface includes a hardware catalog, component selection, analysis dashboards, side-by-side build comparison, methodology documentation, and account-based saved builds. Analysis results can be retrieved through unique result links. The responsive design uses a dark hardware-laboratory aesthetic with glass panels, interactive charts, indigo and teal accents, and accessible navigation.
+
+I built the frontend with Next.js, React, TypeScript, Tailwind CSS, Motion, and Recharts. The backend uses FastAPI, Pydantic, SQLAlchemy, Alembic, and PostgreSQL, with Supabase JWT verification for protected account operations. The repository also includes Blender Open Data and Phoronix ingestion adapters, dataset refresh scripts, provenance tracking, Docker configuration, and frontend/backend test suites.
+
+The project connects data ingestion, normalization, scoring, API design, database modeling, and frontend visualization into an explainable hardware-analysis workflow. Its recommendations come from benchmark rules and weighted deficits rather than a trained machine-learning model."
+            data-link="https://github.com/masumtanjim7/SiliconSense-by-SpideyTech.git" data-category="webdev">
+
+            <div class="project-img">
+                <img src="images/siliconsense.png"
+                    alt="SiliconSense by SpideyTech: PC performance, balance, bottleneck analysis, and upgrade guidance">
+            </div>
+
+            <div class="project-content">
+                <h3>SiliconSense by SpideyTech: PC Strength, Balance &amp; Bottleneck Analyzer</h3>
+                <p>
+                    Full-stack PC analyzer with workload-specific benchmark scoring, separate performance
+                    and balance insights, bottleneck detection, build comparison, and explainable upgrade guidance.
+                </p>
+
+                <div class="project-tags">
+                    <span>Full Stack Development</span>
+                    <span>PC Hardware Analysis</span>
+                    <span>Bottleneck Detection</span>
+                    <span>Workload-Based Scoring</span>
+                    <span>Performance &amp; Balance</span>
+                    <span>Build Comparison</span>
+                    <span>Upgrade Recommendations</span>
+                    <span>Confidence Scoring</span>
+                    <span>Percentile Normalization</span>
+                    <span>Data Provenance</span>
+                    <span>Versioned Datasets</span>
+                    <span>Hardware Catalog</span>
+                    <span>Next.js</span>
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>Tailwind CSS</span>
+                    <span>Motion</span>
+                    <span>Recharts</span>
+                    <span>Python</span>
+                    <span>FastAPI</span>
+                    <span>Pydantic</span>
+                    <span>SQLAlchemy</span>
+                    <span>Alembic</span>
+                    <span>PostgreSQL</span>
+                    <span>Supabase Auth</span>
+                    <span>REST API</span>
+                    <span>Benchmark Ingestion</span>
+                    <span>Blender Open Data</span>
+                    <span>Phoronix Adapter</span>
+                    <span>Docker</span>
+                    <span>Pytest</span>
+                    <span>Vitest</span>
+                    <span>Glassmorphism UI</span>
+                    <span>Responsive Design</span>
+                </div>
+            </div>
+        </div>
+
+
+
         <div class="project-card" data-title="FoodHaven – Food Ordering App"
             data-desc="FoodHaven is a Flutter-based food ordering and delivery mobile application integrated with Firebase. The app provides a seamless onboarding experience, phone number authentication using OTP, and an intuitive user interface for browsing food items, searching dishes, and managing user profiles.
 
